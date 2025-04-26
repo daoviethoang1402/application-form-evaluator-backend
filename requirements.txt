@@ -1,0 +1,10 @@
+google-genai
+mistralai
+openpyxl
+pandas
+fastapi[standard]
+uvicorn[standard]
+pydantic
+httpx
+python-multipart
+google-auth
