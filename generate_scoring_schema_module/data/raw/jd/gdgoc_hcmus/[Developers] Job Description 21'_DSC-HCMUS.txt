@@ -1,0 +1,144 @@
+﻿DSC HCMUS 21’ - 22’ RECRUITMENT
+JOB DESCRIPTION
+1. Developers Team:
+Khi tham gia vào developers team, bạn sẽ chịu trách nhiệm chính về mảng công nghệ cho các sự kiện của DSC.
+
+
+1.1 Mô tả công việc
+* Tìm kiếm chủ đề, xây dựng khung nội dung cho các buổi technical workshop.
+* Tìm kiếm và làm việc với các khách mời, speaker cho các sự kiện, workshop do DSC tổ chức.
+* Tham gia vào các dự án Localization của DSC Vietnam.
+* Phối hợp với team PR để xây dựng chuỗi bài về công nghệ trên fanpage.
+
+
+1.2 Yêu cầu
+Ở DSC, chúng mình không tìm kiếm những cá nhân giỏi nhất mà thay vào đó là những cá nhân có tinh thần làm việc phù hợp với định hướng của cả câu lạc bộ.
+1.2.1 Văn hóa làm việc
+* Có thể đồng hành cùng DSC trong năm học 2020 - 2021.
+* Phù hợp với văn hóa làm việc thân thiện, hòa đồng của DSC.
+* Nhiệt tình, trách nhiệm với công việc, có thể tham gia các buổi sinh hoạt hàng tuần/hàng tháng của DSC.
+* Có tinh thần đóng góp, xây dựng và tranh luận văn minh trong khi làm việc nhóm.
+* Có tinh thần tự học và tư duy mở.
+1.2.2 Chuyên môn
+* Có kinh nghiệm (đã tham gia một cuộc thi, một dự án hoặc tự xây dựng một sản phẩm cụ thể) ở một mảng cụ thể: Web (Frontend/Backend), Mobile, AI/ML, Cloud Platform,...
+
+
+1.3 Lợi ích
+* Được tiếp xúc với các công nghệ của Google.
+* Có cơ hội tham gia các lớp học chứng chỉ dành riêng cho DSC Vietnam và các buổi internal workshop, training do DSC HCMUS tổ chức.
+* Nhận được chứng chỉ từ Google Developers sau khi hoàn tất nhiệm kỳ.
+* Nâng cao kỹ năng mềm khi tham gia các hoạt động nhóm.
+* Mở rộng mối quan hệ bạn bè trong lĩnh vực công nghệ và có những kỉ niệm đẹp trong quãng đời sinh viên.
+* Có cơ hội tham gia các hoạt động bonding ngoại khóa của DSC HCMUS, DSC Vietnam và DSC SEA (South East Asia).
+
+
+2. Event Team:
+Khi tham gia vào event team, bạn sẽ chịu trách nhiệm chính về các buổi sự kiện, workshop “made by DSC”.
+
+
+2.1 Mô tả công việc
+* Xây dựng khung chương trình, các hoạt động cụ thể và điều phối các buổi sự kiện, workshop của DSC.
+* Tìm kiếm địa điểm, chuẩn bị các dụng cụ cần thiết cho các buổi workshop.
+* Tạo và quản lý sự kiện trên nền tảng dsc.community.dev.
+* Quản lý, tương tác với người tham dự trên nền tảng dsc.community.dev và thông qua email.
+
+
+2.2 Yêu cầu
+Ở DSC, chúng mình không tìm kiếm những cá nhân giỏi nhất mà thay vào đó là những cá nhân có tinh thần làm việc phù hợp với định hướng của cả câu lạc bộ.
+2.2.1 Văn hóa làm việc
+* Có thể đồng hành cùng DSC trong năm học 2020 - 2021.
+* Phù hợp với văn hóa làm việc thân thiện, hòa đồng của DSC.
+* Nhiệt tình, trách nhiệm với công việc, có thể tham gia các buổi sinh hoạt hàng tuần/hàng tháng của DSC.
+* Có tinh thần đóng góp, xây dựng và tranh luận văn minh trong khi làm việc nhóm.
+* Có tinh thần tự học và tư duy mở.
+2.2.2 Chuyên môn
+* Có khả năng tổ chức, hoạch định, sắp xếp, vận hành các công việc và quản lý thời gian.
+* Có tư duy logic, giải quyết vấn đề với góc nhìn đa chiều.
+* Sáng tạo và khả năng ứng biến linh hoạt là một lợi thế.
+* Có kinh nghiệm tổ chức sự kiện, các buổi sinh hoạt,... là một lợi thế.
+
+
+2.3 Lợi ích
+* Được tiếp xúc với các công nghệ của Google
+* Có cơ hội tham gia các lớp học chứng chỉ dành riêng cho DSC Vietnam và các buổi internal workshop, training do DSC HCMUS tổ chức
+* Nhận được chứng chỉ từ Google Developers sau khi hoàn tất nhiệm kỳ
+* Nâng cao kỹ năng mềm khi tham gia các hoạt động nhóm
+* Mở rộng mối quan hệ bạn bè trong lĩnh vực công nghệ và có những kỉ niệm đẹp trong quãng đời sinh viên
+* Có cơ hội tham gia các hoạt động bonding ngoại khóa của DSC HCMUS, DSC Vietnam và DSC SEA (South East Asia).
+
+
+
+
+
+
+3. Public Relations (PR) Team:
+Khi tham gia vào PR team, bạn sẽ chịu trách nhiệm chính về bộ mặt của DSC đối với cộng đồng thông qua trang Facebook page cũng như các nền tảng khác. PR Team sẽ bao gồm 2 vai trò riêng biệt là Content và Media, bạn có thể chọn 1 trong 2 vai trò để tham gia cùng DSC nhé.
+
+
+3.1 Mô tả công việc
+Content
+* Lên kế hoạch truyền thông cho các sự kiện, workshop của DSC HCMUS.
+* Tương tác với các bạn subscribers trên trang fanpage và ở các nền tảng khác.
+* Phối hợp với developers team để xây dựng chuỗi bài về công nghệ cho fanpage (khi không có sự kiện diễn ra).
+Media
+* Thiết kế các sản phẩm truyền thông (hình ảnh, video) cho các bài đăng trên Facebook page.
+* Chụp ảnh, quay video trong các buổi sinh hoạt, sự kiện, workshop của DSC.
+
+
+3.2 Yêu cầu
+Ở DSC, chúng mình không tìm kiếm những cá nhân giỏi nhất mà thay vào đó là những cá nhân có tinh thần làm việc phù hợp với định hướng của cả câu lạc bộ.
+3.2.1 Văn hóa làm việc (chung)
+* Có thể đồng hành cùng DSC trong năm học 2020 - 2021.
+* Phù hợp với văn hóa làm việc thân thiện, hòa đồng của DSC.
+* Nhiệt tình, trách nhiệm với công việc, có thể tham gia các buổi sinh hoạt hàng tuần/hàng tháng của DSC.
+* Có tinh thần đóng góp, xây dựng và tranh luận văn minh trong khi làm việc nhóm.
+* Có tinh thần tự học và tư duy mở.
+3.2.2 Chuyên môn
+Content
+* Có kinh nghiệm tham gia truyền thông cho các câu lạc bộ, dự án là một lợi thế.
+* Có khả năng giao tiếp và truyền đạt ý tưởng tốt
+* Văn hay, chữ tốt, sáng tạo và dám khác biệt là một lợi thế.
+Media
+* Kỹ năng sử dụng phần mềm Ai, Photoshop, Canva thông thạo, có mắt thẩm mỹ, sản phẩm đẹp và chặt chẽ bố cục
+* Có kỹ năng chụp ảnh, quay video là một lợi thế 
+
+
+3.3 Lợi ích
+* Được tiếp xúc với các công nghệ của Google
+* Có cơ hội tham gia các lớp học chứng chỉ dành riêng cho DSC Vietnam và các buổi internal workshop, training do DSC HCMUS tổ chức
+* Nhận được chứng chỉ từ Google Developers sau khi hoàn tất nhiệm kỳ
+* Nâng cao kỹ năng mềm khi tham gia các hoạt động nhóm
+* Mở rộng mối quan hệ bạn bè trong lĩnh vực công nghệ và có những kỉ niệm đẹp trong quãng đời sinh viên
+* Có cơ hội tham gia các hoạt động bonding ngoại khóa của DSC HCMUS, DSC Vietnam và DSC SEA (South East Asia).
+
+
+4. Human Resources (HR) Team:
+Khi tham gia vào HR team, bạn sẽ chịu trách nhiệm gắn kết các thành viên DSC lại với nhau thông qua các buổi sinh hoạt.
+
+
+4.1 Mô tả công việc
+* Lên kế hoạch, xây dựng các hoạt động, hình thức, tìm kiếm địa điểm/nền tảng và chịu trách nhiệm thông báo cho các thành viên về các buổi họp, sinh hoạt hằng tháng của DSC.
+* Lên kế hoạch cho các buổi bonding với các chapter DSC khác.
+
+
+4.2 Yêu cầu
+Ở DSC, chúng mình không tìm kiếm những cá nhân giỏi nhất mà thay vào đó là những cá nhân có tinh thần làm việc phù hợp với định hướng của cả câu lạc bộ.
+4.2.1 Văn hóa làm việc
+* Có thể đồng hành cùng DSC trong năm học 2020 - 2021.
+* Phù hợp với văn hóa làm việc thân thiện, hòa đồng của DSC.
+* Nhiệt tình, trách nhiệm với công việc, có thể tham gia các buổi sinh hoạt hàng tuần/hàng tháng của DSC.
+* Có tinh thần đóng góp, xây dựng và tranh luận văn minh trong khi làm việc nhóm.
+* Có tinh thần tự học và tư duy mở.
+* Hoạt ngôn, vui vẻ.
+4.2.2 Chuyên môn
+* Khả năng lắng nghe và đồng cảm tốt
+* Có kỹ năng tổ chức trò chơi, làm hoạt náo viên trong sinh hoạt tập thể.
+
+
+4.3 Lợi ích
+* Được tiếp xúc với các công nghệ của Google
+* Có cơ hội tham gia các lớp học chứng chỉ dành riêng cho DSC Vietnam và các buổi internal workshop, training do DSC HCMUS tổ chức
+* Nhận được chứng chỉ từ Google Developers sau khi hoàn tất nhiệm kỳ
+* Nâng cao kỹ năng mềm khi tham gia các hoạt động nhóm
+* Mở rộng mối quan hệ bạn bè trong lĩnh vực công nghệ và có những kỉ niệm đẹp trong quãng đời sinh viên
+* Có cơ hội tham gia các hoạt động bonding ngoại khóa của DSC HCMUS, DSC Vietnam và DSC SEA (South East Asia).

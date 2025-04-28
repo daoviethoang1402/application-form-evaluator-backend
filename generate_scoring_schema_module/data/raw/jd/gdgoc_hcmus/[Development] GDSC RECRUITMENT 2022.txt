@@ -1,0 +1,77 @@
+RECRUITMENT 2022
+
+Ho Chi Minh City University of Science
+
+WHAT IS GDSC?
+
+What is Google Developer Student Clubs?
+      
+Google Developer Student Clubs (GDSC) is a community-based group for college and university students interested in Google Developer technologies. By joining a GDSC, students grow their knowledge in a peer-to-peer learning environment and build solutions for local businesses and community.
+Here, at Google Developer Student Club - Ho Chi Minh City University of Science (GDSC-HCMUS), we aim to help club members to grow themselves up via many aspects, e.g. technology, soft skills, as well as create an excellent environment to make contact with not just IT-passionate students on campus but with GDEs from different fields. 
+Follow us via:
+          facebook.com/gdsc.hcmus                               
+          www.linkedin.com/company/gdsc-hcmus
+          
+
+Benefits for being part of GDSC
+ 	Get to work in a professional environment
+ 	Get to enhance your soft skills and technical skills
+ 	Opportunities to expand your network with Google communities 
+ 	Access to Google Developers resources
+ 	Guided experience to build solutions for local problems
+ 	Certificates from Google Developers
+Ho Chi Minh City University of Science
+
+WE ARE LOOKING FOR
+
+
+
+JOB DESCRIPTION
+
+DEVELOPMENT DEPARTMENT
+Job description
+ 	Build and deploy applications for GDSC-HCMUS
+ 	Research and build technical contents of workshops and contests
+  	Collaborate with Design & Marketing department to write academic blog posts
+AVAILABLE SLOTS: 12 (CHECK APPLICATION FORM FOR DETAILS)
+
+ 	Basic knowledge in at least one of 4 categories: Web frontend, Web backend, Mobile, Artificial intelligence & Machine learning.
+ 	Having experiences in doing projects or contests is a plus
+ 	Proactive attitude, passionate in learning and sharing	
+ 	Good problem solving skills
+ 	Team-player mindset
+DEVELOPMENT DEPARTMENT
+Job requirements
+
+GDSC-HCMUS RECRUITMENT Q&A
+(LIVE UPDATE)
+
+Q&A
+Q: Cho em hỏi là GSDC ngoài đợt này thì còn đợt nào khác trong năm không ạ :(
+A: Hiện tại tụi mình có kế hoạch chỉ tuyển thành viên một lần trong từng nhiệm kỳ tương ứng với năm học. Nếu bạn không may lỡ mất đợt tuyển này thì đừng lo lắng bởi vì bạn vẫn có thể tham gia các workshop do GDSC tổ chức nha :3
+
+Q&A
+Q: Cho em hỏi là nếu mình không có kinh nghiệm gì thì có hy vọng vào được clb không ạ :(
+A: Bạn đừng lo lắng, bởi vì tụi mình không chọn những người giỏi nhất mà sẽ chọn những người có tinh thần phù hợp với định hướng của câu lạc bộ. Tụi mình sẽ đánh giá bạn qua thái độ và khả năng tư duy giải quyết vấn đề của bạn trong câu trả lời trong form cũng như lúc phỏng vấn (tất nhiên có kinh nghiệm chuyên môn sẽ là điểm cộng). Nếu bạn không tự tin vào ban tech thì vẫn còn 3 ban non-tech cho bạn thử sức nhé ;)
+
+Hãy tự tin và cố gắng lên bạn nhé! GDSC sẽ chờ bạn <3
+
+Q&A
+Q: Cho mình hỏi là GDSC có tuyển sinh viên ngoài trường HCMUS không?
+A: Tụi mình hoan nghênh tất cả các bạn có tinh thần tham gia GDSC nên nếu bạn tiện di chuyển đến cơ sở 227 Nguyễn Văn Cừ, Q5 thì đừng ngại nộp đơn ứng tuyển nhé :>
+
+Q&A
+Q: Em muốn nộp vô nhiều ban thì làm sao ạ
+A: Bạn cứ đơn giản nộp thêm một form nữa nhé ;) Lần này điền câu trả lời cho ban khác
+
+Q&A
+Q: Giả sử em được vào ban này nhưng sau đó có được làm việc của ban khác không ạ?
+A: Nếu khả năng bạn phù hợp thì không vấn đề gì cả :D Tụi mình luôn đề cao sự linh hoạt và thích nghi. Tất nhiên trách nhiệm công việc chính của bạn vẫn là ở ban mà bạn đăng ký. Mọi người trong club luôn luôn có thể học hỏi lẫn nhau dù ở vị trí công việc nào :D
+
+Q&A
+Q: Mình không biết là quá trình làm việc trong clb thì các project mình đã làm có được tính trong số năm kinh nghiệm về dev không hay chỉ đơn giản là các hoạt động đã làm trong trường thôi
+A: Nếu bạn có tham gia dev ở một số project trong club thì chắc chắn là sẽ tính vào kinh nghiệm dev của bạn, cụ thể là ở những công cụ, công nghệ, ngôn ngữ bạn sử dụng.
+
+Thank you!
+devclub.hcmus@gmail.com
+fb.com/gdsc.hcmus

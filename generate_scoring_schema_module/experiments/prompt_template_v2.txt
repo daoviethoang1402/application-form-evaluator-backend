@@ -1,0 +1,164 @@
+Act as an expert in Human Resources specializing in candidate assessment for Non-Profit Organizations (NPOs), particularly those focused on education, community service, or technology education run by volunteers.
+
+Your task is to generate a detailed candidate scoring schema **strictly in JSON format**. This schema will be based on the **Job Description (JD) provided below**. The schema should be dynamically adapted to the specific role requirements outlined in the JD and is intended for use during the **initial candidate screening phase** where reviewers will assess candidate materials (like resumes, application forms, etc.).
+
+**Input Parameters (To be specified when using the template):**
+
+*   `[Scoring Scale Min]`: {scoring_scale_min}
+*   `[Scoring Scale Max]`: {scoring_scale_max}
+
+**Job Description (JD) Placeholder:**
+--- START JOB DESCRIPTION ---
+
+{job_description}
+
+--- END JOB DESCRIPTION ---
+**Instructions:**
+
+1.  **Analyze the Job Description:** Carefully read and analyze the provided Job Description (JD) to identify:
+    *   The specific Role Name/Title.
+    *   Key Responsibilities and Tasks.
+    *   Required Skills, Competencies, and Qualifications (both hard and soft).
+    *   Preferred Skills and Qualifications ('nice-to-haves').
+    *   Required or Preferred Experience (type, duration, level).
+    *   Explicit or implicit emphasis on Mission Alignment, Values, Cultural Fit, or Attitude.
+    *   Mandatory Availability or Commitment requirements.
+    *   Any Pass/Fail criteria (e.g., minimum age, specific certification, location).
+    *   The general focus/context of the organization (if discernible from the JD).
+
+2.  **Strict JSON Output:** Generate ONLY the JSON object representing the scoring schema based on your analysis of the JD. Do not include any introductory text, explanations, or markdown formatting outside the JSON structure itself. Ensure the output is valid JSON.
+
+3.  **Dynamic Adaptation (Based on JD Analysis):**
+    *   **Weights:** Adapt the `weight_percent` for each scoring category based on the emphasis found in the JD.
+    *   **Criteria:** Populate the `criteria` array within each category with specific sub-criteria *derived directly* from the JD's listed responsibilities, skills, and requirements. Name criteria clearly based on the JD content.
+    *   **Scoring Anchors:** Populate the `scoring_anchors` for each criterion using the specified `[Scoring Scale Min]` and `[Scoring Scale Max]`. The descriptions for each score level should reflect how well a candidate meets the specific criterion *as described or implied in the JD*, providing guidance for a reviewer assessing actual candidate materials later.
+    *   **Assessment Description:** For each criterion, provide a concise `assessment_description` explaining *what aspect* related to the JD requirement the reviewer should evaluate when looking at candidate materials later.
+    *   **Metadata:** Populate `roleName` and `organizationFocus` (if discernible) in the `schemaMetadata` based on the JD.
+    *   **Pass/Fail:** Populate the `passFailThresholds` array with any non-negotiable minimum requirements identified in the JD analysis.
+
+4.  **JSON Structure:** Adhere precisely to the following JSON structure, filling in the placeholders and dynamic content based on your JD analysis:
+
+    {
+      "schemaMetadata": {
+        "roleName": "[Derived Role Name from JD]",
+        "organizationFocus": "[Derived Org Focus or General NPO]",
+        // HARDCODED VALUE FOR THIS PROMPT'S SCOPE:
+        "screeningPhase": "Initial Candidate Screening",
+        "scoringScale": {
+          "min": [Populated Min Value],
+          "max": [Populated Max Value]
+        },
+        "version": "1.0",
+        "description": "Scoring schema derived from Job Description for initial candidate assessment. Intended for use when reviewing candidate materials (e.g., resume, forms)."
+      },
+      "scoringCategories": [
+        {
+          "category_id": "CAT01",
+          "category_name": "Mission Alignment & Motivation",
+          "weight_percent": "[ADAPTED_WEIGHT_FROM_JD_EMPHASIS]",
+          "rationale": "Assesses candidate's connection to the NPO's cause, values, and motivation as relevant to the role described in the JD.",
+          "criteria": [
+            {
+              "criterion_id": "CRIT01_01",
+              "criterion_name": "Understanding of Org Mission/Values",
+              "assessment_description": "Evaluate the clarity and depth of the candidate's understanding of the organization's mission and values as expressed in their application materials, relative to JD context.",
+              "scoring_anchors": {
+                "[Scale Min]": "...", // Populate anchors based on scale
+                // ... intermediate anchors ...
+                "[Scale Max]": "..."
+              }
+            },
+            {
+              "criterion_id": "CRIT01_02",
+              "criterion_name": "Passion & Enthusiasm for Cause (related to JD)",
+              "assessment_description": "Assess the level of genuine interest and commitment conveyed for the cause, relevant to the role's context described in the JD.",
+               "scoring_anchors": { /* ... anchors ... */ }
+            }
+            // ... potentially more criteria ...
+          ]
+        },
+        {
+          "category_id": "CAT02",
+          "category_name": "Relevant Skills & Competencies",
+          "weight_percent": "[ADAPTED_WEIGHT_FROM_JD_EMPHASIS]",
+          "rationale": "Assesses required technical/hard skills and essential soft skills specified or implied in the JD.",
+          "criteria": [
+            // Example: { "criterion_id": "CRIT02_01", "criterion_name": "[Skill Name from JD]", "assessment_description": "Evaluate the candidate's demonstrated proficiency level in [Skill Name] based on the requirements outlined in the JD.", "scoring_anchors": { /* ... anchors ... */ } }
+          ]
+        },
+        {
+          "category_id": "CAT03",
+          "category_name": "Relevant Experience",
+          "weight_percent": "[ADAPTED_WEIGHT_FROM_JD_EMPHASIS]",
+          "rationale": "Evaluates past work, volunteer, project, or leadership roles based on requirements/preferences in the JD.",
+          "criteria": [
+             {
+              "criterion_id": "CRIT03_01",
+              "criterion_name": "[Experience Type Mentioned in JD]",
+              "assessment_description": "Assess the relevance and depth of the candidate's experience in [Experience Type] compared to the JD requirements.",
+               "scoring_anchors": { /* ... anchors ... */ }
+            }
+             // ... potentially more criteria ...
+          ]
+        },
+        {
+           "category_id": "CAT04",
+           "category_name": "Cultural Fit & Attitude",
+           "weight_percent": "[ADAPTED_WEIGHT_FROM_JD_EMPHASIS]",
+           "rationale": "Assesses alignment with work culture, proactivity, learning mindset, teamwork orientation as suggested by the JD.",
+           "criteria": [
+             {
+              "criterion_id": "CRIT04_01",
+              "criterion_name": "[Attitude/Trait Mentioned or Implied in JD]",
+              "assessment_description": "Evaluate evidence of the candidate demonstrating the desired [Attitude/Trait] (e.g., proactivity, collaboration) as relevant to the JD.",
+               "scoring_anchors": { /* ... anchors ... */ }
+            }
+             // ... potentially more criteria ...
+           ]
+        },
+        {
+           "category_id": "CAT05",
+           "category_name": "Availability & Commitment",
+           "weight_percent": "[ADAPTED_WEIGHT_FROM_JD_EMPHASIS]",
+           "rationale": "Assesses stated ability to meet time and duration requirements specified in the JD.",
+            "criteria": [
+              {
+                "criterion_id": "CRIT05_01",
+                "criterion_name": "Meets Time Requirements (per JD)",
+                "assessment_description": "Evaluate whether the candidate's stated availability aligns with the schedule requirements outlined in the JD. Often Pass/Fail.",
+                 "scoring_anchors": { /* ... anchors ... */ }
+              },
+              {
+                "criterion_id": "CRIT05_02",
+                "criterion_name": "Meets Commitment Duration (per JD)",
+                "assessment_description": "Evaluate whether the candidate confirms willingness to commit for the duration specified in the JD. Often Pass/Fail.",
+                 "scoring_anchors": { /* ... anchors ... */ }
+              }
+            ]
+         },
+         {
+           "category_id": "CAT06",
+           "category_name": "Communication Quality (Written)",
+           "weight_percent": "[ADAPTED_WEIGHT_FROM_JD_EMPHASIS]",
+           "rationale": "Assesses overall clarity, professionalism, and attention to detail in candidate's written application materials.",
+            "criteria": [
+              {
+                "criterion_id": "CRIT06_01",
+                "criterion_name": "Clarity & Professionalism",
+                "assessment_description": "Evaluate the overall quality (clarity, grammar, spelling, tone) of the candidate's written communication.",
+                 "scoring_anchors": { /* ... anchors ... */ }
+              }
+            ]
+         }
+         // Add/remove categories if JD analysis suggests a different structure is more appropriate
+      ],
+      "passFailThresholds": [
+        // Populate with non-negotiable minimums identified in the JD analysis.
+        // Example: { "threshold_id": "PF01", "description": "[Mandatory Qualification from JD]" }
+      ]
+    }
+
+5.  **Content Quality:** Ensure derived criteria names, rationales, assessment descriptions, and scoring anchors are clear, actionable for a human reviewer using the schema later, and directly reflect the analyzed JD content.
+
+**Execution:**
+To use this template, replace the `{...}` placeholders for the scoring scale and insert the target Job Description text within its designated markers. Provide the entire prompt to the LLM.

@@ -172,3 +172,10 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+cleanlab_tlm_api_key.txt
+gemini_api_key.txt
+.qodo
+
+vllm/
+llama.cpp/

@@ -1,0 +1,56 @@
+Google Developer Student Clubs (GDSC) là một chương trình được hỗ trợ bởi Google và Cộng đồng lập trình viên Google (Google Developers Group - GDG). Mục tiêu của GDSC là xây dựng các câu lạc bộ sinh viên tại các trường đại học với nhằm ươm mầm và hỗ trợ các sinh viên trở thành các lập trình viên giàu kinh nghiệm qua những cơ hội giải quyết các vấn đề thực tiễn tại địa phương.
+
+GDSC-HCMUS là một câu lạc bộ được thành lập dựa trên mô hình GDSC và hiện đang bắt đầu bước sang nhiệm kỳ mới. Với mong muốn tìm ra những những nhân tố tích cực để cùng nhau xây dựng một cộng đồng các thế hệ sinh viên gắn kết, năng động, và bền vững giúp kết nối các sinh viên và cựu sinh viên cùng học hỏi và phát triển, GDSC-HCMUS xin thông báo tuyển thành viên cho nhiệm kỳ 2022-2023 này!
+
+📌 Mô tả công việc và yêu cầu của từng ban bạn có thể xem ở từng mục của ban nhé!
+📌 Form sẽ mở từ 17/10 đến 30/10 nên bạn hãy bắt đầu điền sớm nhé, sẽ có nhiều câu hỏi cho bạn đấy!
+
+
+Mọi thắc mắc các bạn có thể inbox đến fb.com/gdsc.hcmus để tụi mình hỗ trợ bạn nha <3
+
+GIỚI THIỆU
+📌 Ở GDSC-HCMUS, chúng mình không tìm kiếm những cá nhân giỏi nhất mà thay vào đó là những cá nhân có tinh thần làm việc phù hợp với định hướng của cả câu lạc bộ.
+
+1. YÊU CẦU
+✨ Có thể đồng hành cùng GDSC-HCMUS trong năm học 2022 - 2023.
+✨ Nhiệt tình, trách nhiệm với công việc, có thể tham gia các buổi sinh hoạt hàng tuần/hàng tháng của club.
+✨ Có tinh thần đóng góp, xây dựng và tranh luận văn minh trong khi làm việc nhóm.
+✨ Có tinh thần tự học và tư duy mở.
+
+2. LỢI ÍCH
+🎁 Được tiếp xúc với các công nghệ của Google.
+🎁 Có cơ hội tham gia các lớp học chứng chỉ dành riêng cho GDSC Vietnam và các buổi internal workshop, training do GDSC-HCMUS tổ chức.
+🎁 Nhận được chứng chỉ từ Google Developers sau khi hoàn tất nhiệm kỳ.
+🎁 Nâng cao kỹ năng mềm khi tham gia các hoạt động nhóm.
+🎁 Mở rộng mối quan hệ bạn bè trong lĩnh vực công nghệ và có những kỉ niệm đẹp trong quãng đời sinh viên.
+🎁 Có cơ hội tham gia các hoạt động bonding ngoại khóa của GDSC-HCMUS, GDSC Vietnam và GDSC SEA (South East Asia).
+
+Dev:
+Khi ở trong ban Development, bạn sẽ chịu trách nhiệm chính về mảng công nghệ và kỹ thuật cho các sự kiện của club.
+
+
+0. CÁC VỊ TRÍ CẦN TUYỂN
+💻 Frontend specialist (4 slots)
+💻 Backend specialist (3 slots)
+💻 Mobile specialist (2 slots)
+💻 AI & ML specialist (3 slots)
+
+
+1. MÔ TẢ CÔNG VIỆC
+🔎 Tìm kiếm chủ đề, xây dựng khung nội dung cho các buổi technical workshop.
+🔎 Xây dựng và phát triển các sản phẩm của GDSC-HCMUS (website, discord bot,...).
+🔎 Phối hợp với ban Design & Marketing để xây dựng chuỗi bài viết về công nghệ trên Facebook page.
+
+
+2. YÊU CẦU CHUYÊN MÔN
+📝 Có kiến thức, kỹ năng, kinh nghiệm ở một mảng cụ thể: Web, Mobile, AI & ML,...
+📝 Có kinh nghiệm tham gia các cuộc thi, các dự án, hoặc tự làm ra sản phẩm cụ thể là một lợi thế.
+
+
+📌 Ở GDSC-HCMUS, chúng mình không tìm kiếm những cá nhân giỏi nhất mà thay vào đó là những cá nhân có tinh thần làm việc phù hợp với định hướng của cả câu lạc bộ.
+
+
+Bạn hãy chọn team để đi đến mục câu hỏi tương ứng nhé!
+
+
+📌 Ở GDSC-HCMUS, chúng mình không tìm kiếm những cá nhân giỏi nhất mà thay vào đó là những cá nhân có tinh thần làm việc phù hợp với định hướng của cả câu lạc bộ.

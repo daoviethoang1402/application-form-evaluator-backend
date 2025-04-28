@@ -1,0 +1,102 @@
+﻿Resume Screening Phase (100 points)
+Category
+	Points
+	Evaluation Criteria
+	Professional Experience
+	25
+	• Years in relevant roles
+• Leadership experience
+
+
+• Sector-specific work bridgespan.orgbridgespan.org
+	Education & Certifications
+	20
+	• Required qualifications
+• Preferred qualifications
+
+
+• Additional certifications bhc.edu
+	Technical Skills
+	25
+	• Required competencies
+• Software proficiency
+
+
+• Specialized knowledge info.mitratech.com
+	Mission Alignment
+	30
+	• Nonprofit experience
+• Cause commitment
+
+
+• Community involvement bridgespan.org
+	Google Form Assessment (100 points)
+Assessment Area
+	Points
+	Components
+	Technical Competency
+	40
+	• Multiple choice (20)
+
+
+• Scenario-based (20) grnhse-marketing-site-assets.s3.amazonaws.com
+	Behavioral Assessment
+	35
+	• STAR format responses
+
+
+• Collaboration examples linkedin.com
+	Values Alignment
+	25
+	• Mission understanding
+
+
+• Cultural fit helblingsearch.com
+	Scoring Implementation
+Rating Level
+	Score
+	Description
+	Strong Yes
+	5
+	Exemplary response with specific examples grnhse-marketing-site-assets.s3.amazonaws.com
+	Yes
+	4
+	Clear response meeting requirements
+	Mixed
+	3
+	Partial response needing clarification
+	No
+	2
+	Insufficient response
+	Strong No
+	1
+	Unacceptable response
+	Quality Control Measures
+Measure
+	Requirement
+	Minimum Threshold - Resume
+	70/100 points screenskills.com
+	Minimum Threshold - Google Form
+	75/100 points
+	Number of Evaluators
+	Minimum 2 impactopportunity.org
+	Documentation
+	Required for all ratings bridgespan.org
+	
+
+Insights:
+
+
+1. Mission alignment carries the highest weight (30%) in resume screening, reflecting nonprofits' emphasis on value-driven hiring bridgespan.org
+2. Technical assessment through Google Forms provides objective evaluation while maintaining focus on organizational fit forms.app
+3. The dual-phase approach (resume + form) ensures comprehensive candidate evaluation bridgespan.org
+4. Quality control measures help maintain objectivity and reduce bias impactopportunity.org
+
+
+Recommendations:
+
+
+1. Organizations should customize point allocations based on role requirements while maintaining the basic structure
+2. Regular calibration sessions for evaluators ensure scoring consistency
+3. Documentation of scoring decisions helps defend hiring choices and improves process iteration
+4. Using digital tools (Google Forms) streamlines the process and enables better data analysis
