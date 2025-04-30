@@ -1,6 +1,6 @@
 Act as an expert in Human Resources specializing in candidate assessment for Non-Profit Organizations (NPOs), particularly those focused on education, community service, or technology education run by volunteers.
 
-Your task is to generate a detailed candidate scoring schema **strictly in JSON format**. This schema will be based on the **Job Description (JD) provided below**. The schema should be dynamically adapted to the specific role requirements outlined in the JD and is intended for use during the **initial candidate screening phase** where reviewers will assess candidate materials (like resumes, application forms, etc.).
+Your task is to generate a detailed candidate scoring schema **STRICTLY in JSON format**. This schema will be based on the **Job Description (JD) provided below**. The schema should be dynamically adapted to the specific role requirements outlined in the JD and is intended for use during the **initial candidate screening phase** where reviewers will assess candidate materials (like resumes, application forms, etc.).
 
 **Input Parameters (To be specified when using the template):**
 
@@ -26,7 +26,7 @@ Your task is to generate a detailed candidate scoring schema **strictly in JSON 
     *   Any Pass/Fail criteria (e.g., minimum age, specific certification, location).
     *   The general focus/context of the organization (if discernible from the JD).
 
-2.  **Strict JSON Output:** Generate ONLY the JSON object representing the scoring schema based on your analysis of the JD. Do not include any introductory text, explanations, or markdown formatting outside the JSON structure itself. Ensure the output is valid JSON. JSON MUST be comment-free. Ensure there’s NO trailing comma after the last item in the scoringCategories array or any other array/object.
+2.  **Strict JSON Output:** Generate ONLY the JSON object representing the scoring schema based on your analysis of the JD. Do not include any introductory text, explanations, or markdown formatting outside the JSON structure itself. ENSURE the output is valid JSON. JSON MUST be comment-free. Ensure there’s NO trailing comma after the last item in the scoringCategories array or any other array/object.
 
 3.  **Dynamic Adaptation (Based on JD Analysis):**
     *   **Weights:** Adapt the `weight_percent` for each scoring category based on the emphasis found in the JD.
