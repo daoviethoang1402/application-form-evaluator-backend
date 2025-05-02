@@ -23,9 +23,12 @@ def extract_content(url, language="vi"):
     return extract_text_from_pdf(document)
 
 def parse_resume(url, required_fields, json_schema):
+    '''
+    Trả về 1 string có dạng JSON. Xử lý lỗi ở resume_parser_service.py
+    '''
     file_content = extract_content(url)
     if not file_content or not json_schema:
-        return dict()
+        return ""
 
     prompt = QUERY_PROMPT.format(
         required_fields=required_fields,
@@ -33,7 +36,4 @@ def parse_resume(url, required_fields, json_schema):
         content=file_content
     )
     response_text = generate_content(prompt)
-    try:
-        return json.loads(response_text.replace('```json\n', '').replace('\n```', ''))
-    except json.JSONDecodeError:
-        return dict()
+    return response_text

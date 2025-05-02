@@ -2,35 +2,17 @@ import pandas as pd
 import os
 from fastapi import UploadFile
 from fastapi.responses import FileResponse
-from starlette.responses import JSONResponse, Response
+from starlette.responses import JSONResponse
+from .utils import get_file_path, set_file_path, STORAGE_DIR
 
-STORAGE_DIR = "app/storage/"
-storage_mapping = {
-    "UPLOAD": "uploads/",
-}
-# Tạo thư mục nếu chưa có
-os.makedirs(STORAGE_DIR, exist_ok=True)
-
-def read_all_sheets_from_excel(filepath, sheet_name=None):
-    xls = pd.ExcelFile(filepath)
-    if sheet_name is None:
-        print("Finding the longest sheet...")
-        sheets = {name: xls.parse(name) for name in xls.sheet_names}
-        return max(sheets.items(), key=lambda item: len(item[1]))
-    else:
-        return xls.parse(sheet_name)
-
-def save_file(file: UploadFile):
-    file_location = os.path.join(STORAGE_DIR + storage_mapping['UPLOAD'], file.filename)
+def save_file_from_user(file: UploadFile):
+    file_location = set_file_path(subpath="uploads/", filename=file.filename)
     with open(file_location, "wb+") as f:
         f.write(file.file.read())
     return {"filename": file.filename, "message": "Upload successful"}
 
-def get_file_path(filename: str):
-    file_path = os.path.join(STORAGE_DIR, filename)
-    if not os.path.exists(file_path):
-        raise FileNotFoundError(f"File '{filename}' not found")
-    return file_path
+def get_file_location(subpath: str, filename: str):
+    return get_file_path(subpath, filename)
 
 def list_files():
     result = []
@@ -41,12 +23,12 @@ def list_files():
             result.append(os.path.relpath(os.path.join(root, name), STORAGE_DIR))
     return result
 
-def delete_file(filename: str):
-    file_path = get_file_path(filename)
+def delete_file(subpath: str, filename: str):
+    file_path = get_file_path(subpath, filename)
     os.remove(file_path)
 
-def view_file_content(filename: str):
-    file_path = get_file_path(filename)
+def view_file_content(subpath: str, filename: str):
+    file_path = get_file_path(subpath, filename)
     file_ext = os.path.splitext(filename)[1].lower()
 
     if file_ext in [".pdf", ".jpg", ".jpeg", ".png"]:
@@ -60,7 +42,37 @@ def view_file_content(filename: str):
             content = f.read()
         return JSONResponse(content={"filename": filename, "content": content[:500]})  # chỉ trả về 500 ký tự đầu
 
-# if __name__ == "__main__":
-#     file_path = get_file_path("results/resume_parser/haha.xlsx")
-#     print(file_path)
-#     print(os.path.exists(file_path))
+def read_sheet_from_excel(file_path, sheet_name=None):
+    xls = pd.ExcelFile(file_path)
+    if sheet_name is None:
+        print("Return the responses sheet by finding the longest sheet...")
+        sheets = {name: xls.parse(name) for name in xls.sheet_names}
+        sheet_name, table = max(sheets.items(), key=lambda item: len(item[1]))
+        return sheet_name, table
+    else:
+        print(f"Return the responses sheet by name: {sheet_name}")
+        table = xls.parse(sheet_name)
+        return table
+    
+def get_columns_from_excel(subpath, filename, sheet_name=None):
+    # Lấy table từ filename
+    file_path = get_file_path(subpath, filename)
+    _, table = read_sheet_from_excel(file_path, sheet_name)
+
+    # Lấy tên các cột trong table
+    columns = table.columns.tolist()
+    return columns, len(columns)
+
+def remove_columns_from_excel(subpath, filename, sheet_name=None, columns=[]):
+    # Lấy table từ filename
+    file_path = get_file_path(subpath, filename)
+    _, table = read_sheet_from_excel(file_path, sheet_name)
+
+    # Xóa các cột được chỉ định trong table
+    table = table.drop(columns=columns, errors='ignore')
+    
+    # Lưu table vào file mới
+    file_name, file_ext = os.path.splitext(filename)
+    new_file_path = set_file_path(subpath, file_name + "_modified" + file_ext)
+    table.to_excel(new_file_path, index=False)
+    return new_file_path

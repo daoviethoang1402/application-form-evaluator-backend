@@ -1,26 +1,27 @@
-# Chứa các api liên quan đến file
-from fastapi import APIRouter, UploadFile, File, HTTPException
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi import APIRouter, UploadFile, HTTPException, Query, File 
+from fastapi.responses import FileResponse
 from app.services import file_service
+from typing import Annotated
 
-router = APIRouter()
+router = APIRouter(prefix="/file", tags=["File"])
 
 @router.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
-    return file_service.save_file(file)
+    return file_service.save_file_from_user(file)
 
 @router.get("/download/")
-async def download_file(filename: str):
+async def download_file(subpath: str, filename: str):
     try:
-        file_path = file_service.get_file_path(filename)
-        return FileResponse(file_path, filename=filename)
+        file_path = file_service.get_file_location(subpath, filename)
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
+    else:
+        return FileResponse(file_path, filename=filename)
 
 @router.get("/view/")
-async def view_file(filename: str):
+async def view_file(subpath: str, filename: str):
     try:
-        return file_service.view_file_content(filename)
+        return file_service.view_file_content(subpath, filename)
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
 
@@ -30,9 +31,32 @@ async def list_files():
     return {"files": files}
 
 @router.delete("/delete/")
-async def delete_file(filename: str):
+async def delete_file(subpath: str, filename: str):
     try:
-        file_service.delete_file(filename)
-        return {"message": f"File {filename} deleted successfully"}
+        file_service.delete_file(subpath, filename)
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
+    else:
+        return {"status": f"File {filename} deleted successfully"}
+    
+@router.get("/excel/get-columns/")
+async def get_columns_from_excel(subpath: str, filename: str, sheet_name: str = None):
+    try:
+        columns, num_columns = file_service.get_columns_from_excel(subpath, filename, sheet_name)
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    else:
+        return {"columns": columns, "num_columns": num_columns}
+
+@router.post("/excel/remove-columns/")
+async def remove_columns_from_excel(subpath: str, filename: str, sheet_name: str = None, columns: Annotated[list[str], Query(...)] = []):
+    try:
+        new_file_path = file_service.remove_columns_from_excel(subpath, filename, sheet_name, columns)
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    else:
+        return {"status": "Columns removed successfully", "new_file_path": new_file_path}
