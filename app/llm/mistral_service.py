@@ -1,6 +1,8 @@
 from mistralai import Mistral
+from dotenv import load_dotenv
 import os
 
+load_dotenv()
 mistral = Mistral(api_key=os.getenv('MISTRAL_API_KEY'))
 
 def extract_text_from_pdf(document, model="mistral-ocr-latest"):

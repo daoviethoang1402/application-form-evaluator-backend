@@ -1,6 +1,9 @@
 from google import genai
+from dotenv import load_dotenv
+import os
 
-gemini = genai.Client()
+load_dotenv()
+gemini = genai.Client(api_key=os.getenv('GOOGLE_API_KEY'))
 
 def generate_content(prompt, model="gemini-2.0-flash"):
     try:
