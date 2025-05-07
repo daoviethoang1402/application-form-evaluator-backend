@@ -4,6 +4,7 @@ from fastapi import UploadFile
 from fastapi.responses import FileResponse
 from starlette.responses import JSONResponse
 from .utils import get_file_path, set_file_path, STORAGE_DIR
+from app.modules.resume_parser.utils import find_resume_column
 
 def save_file_from_user(file: UploadFile):
     file_location = set_file_path(subpath="uploads/", filename=file.filename)
@@ -54,22 +55,24 @@ def read_sheet_from_excel(file_path, sheet_name=None):
         table = xls.parse(sheet_name)
         return table
     
-def get_columns_from_excel(subpath, filename, sheet_name=None):
+def get_columns_from_excel(subpath, filename, sheet_name=None, return_resume_column=True):
     # Lấy table từ filename
     file_path = get_file_path(subpath, filename)
     _, table = read_sheet_from_excel(file_path, sheet_name)
+    resume_column = find_resume_column(table)
 
     # Lấy tên các cột trong table
     columns = table.columns.tolist()
-    return columns, len(columns)
+    return columns, len(columns), resume_column if return_resume_column else None
 
-def remove_columns_from_excel(subpath, filename, sheet_name=None, columns=[]):
+def select_columns_from_excel(subpath, filename, sheet_name=None, columns=[]):
     # Lấy table từ filename
     file_path = get_file_path(subpath, filename)
     _, table = read_sheet_from_excel(file_path, sheet_name)
 
-    # Xóa các cột được chỉ định trong table
-    table = table.drop(columns=columns, errors='ignore')
+    # Giữ các cột được chỉ định trong table
+    if columns:
+        table = table[columns]
     
     # Lưu table vào file mới
     file_name, file_ext = os.path.splitext(filename)

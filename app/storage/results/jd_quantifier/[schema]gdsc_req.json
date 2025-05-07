@@ -1,0 +1,159 @@
+{
+    "schemaMetadata": {
+        "roleName": "GDSC-HCMUS Member Applicant",
+        "organizationFocus": "Technology Education, Student Community, Volunteer-run (GDSC Chapter)",
+        "screeningPhase": "Initial Candidate Screening",
+        "scoringScale": {
+            "min": 1,
+            "max": 5
+        },
+        "version": "1.0",
+        "description": "Scoring schema derived from Job Description for initial candidate assessment. Intended for use when reviewing candidate materials (e.g., resume, forms)."
+    },
+    "scoringCategories": [
+        {
+            "category_id": "CAT01",
+            "category_name": "Mission Alignment & Motivation",
+            "weight_percent": 67,
+            "rationale": "Assesses candidate's connection to GDSC's cause, community contribution, and personal motivations for joining, based on specific criteria and questions from the JD. This is a major component of the 'Thái độ & tinh thần' (Attitude & Spirit) emphasized in the JD.",
+            "criteria": [
+                {
+                    "criterion_id": "CRIT01_01",
+                    "criterion_name": "Desire to Contribute to Community",
+                    "assessment_description": "Evaluate the candidate's expressed desire to contribute to the community, based on their answer to 'Vì sao bạn muốn trở thành một thành viên của GDSC-HCMUS?' (Why do you want to become a member of GDSC-HCMUS?). This corresponds to 2/10 of the mandatory points in the JD.",
+                    "scoring_anchors": {
+                        "1": "No clear desire to contribute to the community expressed, or answer is generic, unconvincing, or irrelevant to GDSC's context.",
+                        "3": "Moderate desire to contribute is expressed, shows basic understanding of community needs relevant to GDSC.",
+                        "5": "Strong, clear, and genuine desire to contribute to the community is evident, with specific, insightful, and relevant reasons linked to GDSC's potential impact."
+                    }
+                },
+                {
+                    "criterion_id": "CRIT01_02",
+                    "criterion_name": "Commitment to Contribute via GDSC",
+                    "assessment_description": "Evaluate the candidate's specific reasons for choosing GDSC as a platform for their contributions, reflecting understanding of GDSC. Based on answers to 'Bạn biết đến GDSC như thế nào? Vì sao bạn muốn trở thành một thành viên của GDSC-HCMUS?'. This corresponds to 1/10 of the mandatory points in the JD.",
+                    "scoring_anchors": {
+                        "1": "No clear reason why GDSC specifically is chosen, or misunderstanding of GDSC's role.",
+                        "3": "Adequate understanding of GDSC and its role, providing some valid reasons for choosing it.",
+                        "5": "Excellent articulation of why GDSC is the preferred platform, showing strong alignment and specific understanding of GDSC's mission and activities."
+                    }
+                },
+                {
+                    "criterion_id": "CRIT01_03",
+                    "criterion_name": "Motivation for Personal Development",
+                    "assessment_description": "Evaluate the candidate's expectations for personal growth and learning from GDSC, based on their answer to 'Bạn mong muốn nhận được điều gì từ GDSC-HCMUS?' (What do you expect to receive from GDSC-HCMUS?). This corresponds to 3/10 of the mandatory points in the JD.",
+                    "scoring_anchors": {
+                        "1": "No clear expectation for personal development, or expectations are misaligned with GDSC's offerings.",
+                        "3": "Realistic expectations for personal development through GDSC are stated with some clarity.",
+                        "5": "Strong, specific, and ambitious yet realistic personal development goals are expressed, demonstrating proactive intent to learn and grow with GDSC."
+                    }
+                },
+                {
+                    "criterion_id": "CRIT01_04",
+                    "criterion_name": "Motivation for Networking and Expanding Relationships",
+                    "assessment_description": "Evaluate the candidate's interest in networking and building relationships as a motivation for joining GDSC. This corresponds to 2/10 of the mandatory points in the JD.",
+                    "scoring_anchors": {
+                        "1": "No expressed interest in networking or expanding relationships, or disinterest.",
+                        "3": "States a reasonable interest in networking and expanding relationships through GDSC.",
+                        "5": "Strong motivation to network, connect with peers, and build meaningful relationships within the GDSC community is evident and well-articulated."
+                    }
+                }
+            ]
+        },
+        {
+            "category_id": "CAT02",
+            "category_name": "Relevant Skills & Competencies",
+            "weight_percent": 0,
+            "rationale": "The provided Job Description does not specify particular skills or competencies for scoring in this initial screening phase. Focus is on attitude and motivation.",
+            "criteria": [
+                {
+                    "criterion_id": "CRIT02_01",
+                    "criterion_name": "Specific Skills (Not Scored per JD)",
+                    "assessment_description": "No specific skills are formally scored based on the provided JD. This section is weighted at 0%.",
+                    "scoring_anchors": {
+                        "1": "Not Applicable. This criterion is not scored.",
+                        "3": "Not Applicable. This criterion is not scored.",
+                        "5": "Not Applicable. This criterion is not scored."
+                    }
+                }
+            ]
+        },
+        {
+            "category_id": "CAT03",
+            "category_name": "Relevant Experience",
+            "weight_percent": 0,
+            "rationale": "The provided Job Description does not specify particular experience requirements for scoring in this initial screening phase. Focus is on attitude and motivation.",
+            "criteria": [
+                {
+                    "criterion_id": "CRIT03_01",
+                    "criterion_name": "Specific Experience (Not Scored per JD)",
+                    "assessment_description": "No specific experience is formally scored based on the provided JD. This section is weighted at 0%.",
+                    "scoring_anchors": {
+                        "1": "Not Applicable. This criterion is not scored.",
+                        "3": "Not Applicable. This criterion is not scored.",
+                        "5": "Not Applicable. This criterion is not scored."
+                    }
+                }
+            ]
+        },
+        {
+            "category_id": "CAT04",
+            "category_name": "Cultural Fit & Attitude",
+            "weight_percent": 16,
+            "rationale": "Assesses politeness and professional conduct as specified in the JD. This is a component of the 'Thái độ & tinh thần' (Attitude & Spirit) emphasized in the JD.",
+            "criteria": [
+                {
+                    "criterion_id": "CRIT04_01",
+                    "criterion_name": "Politeness and Professionalism (Lịch sự)",
+                    "assessment_description": "Evaluate the candidate's politeness (Lịch sự) and professional demeanor as conveyed in their application materials (e.g., tone, language used). This corresponds to 2/10 of the mandatory points in the JD.",
+                    "scoring_anchors": {
+                        "1": "Application materials show clear lack of politeness or professionalism (e.g., rude, overly casual, demanding tone).",
+                        "3": "Application materials are generally polite and professional, meeting basic expectations.",
+                        "5": "Application materials demonstrate exemplary politeness, respect, and professionalism throughout, setting a positive tone."
+                    }
+                }
+            ]
+        },
+        {
+            "category_id": "CAT05",
+            "category_name": "Availability & Commitment",
+            "weight_percent": 0,
+            "rationale": "The provided Job Description does not specify availability or commitment requirements for scoring in this initial screening phase. These may be assessed separately.",
+            "criteria": [
+                {
+                    "criterion_id": "CRIT05_01",
+                    "criterion_name": "Availability & Commitment (Not Scored per JD)",
+                    "assessment_description": "No specific availability or commitment details are formally scored based on the provided JD. This section is weighted at 0%.",
+                    "scoring_anchors": {
+                        "1": "Not Applicable. This criterion is not scored.",
+                        "3": "Not Applicable. This criterion is not scored.",
+                        "5": "Not Applicable. This criterion is not scored."
+                    }
+                }
+            ]
+        },
+        {
+            "category_id": "CAT06",
+            "category_name": "Communication Quality (Written)",
+            "weight_percent": 17,
+            "rationale": "Assesses a specific aspect of written communication mentioned as 'Điểm cộng' (Bonus Points) in the JD - a courteous closing statement.",
+            "criteria": [
+                {
+                    "criterion_id": "CRIT06_01",
+                    "criterion_name": "Courteous Closing Statement (Bonus Item)",
+                    "assessment_description": "Evaluate if the candidate included a courteous closing statement, such as a 'Cảm ơn hoặc chúc recruitment thành công' (Thank you or wish recruitment success), at the end of the form. This was specified as a 2-point bonus in the JD.",
+                    "scoring_anchors": {
+                        "1": "No courteous closing statement (e.g., thank you, well wishes) is present at the end of the form.",
+                        "3": "A very brief or generic closing is present (e.g., 'Thanks'), but lacks distinct expression of gratitude or specific well wishes for the recruitment.",
+                        "5": "A clear, thoughtful, and appropriate courteous closing statement (thank you or well wishes for recruitment) is included, reflecting positively on candidate's professionalism and attention to detail."
+                    }
+                }
+            ]
+        }
+    ],
+    "passFailThresholds": [
+        {
+            "threshold_id": "PF01",
+            "description": "Candidate must demonstrate an overall positive 'Thái độ & tinh thần' (Attitude & Spirit). This is primarily evaluated through the 'Mission Alignment & Motivation' and 'Cultural Fit & Attitude' categories. A significantly low combined performance in these areas (reflecting poor attitude, lack of genuine motivation, or impoliteness) may lead to disqualification, as per the JD's emphasis ('không cần xét các tiêu chí còn lại')."
+        }
+    ]
+}
