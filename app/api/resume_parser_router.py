@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 import os
 from app.services import resume_parser_service
-from app.services.utils import get_file_path, set_file_path
+from app.utils.filepath import get_file_path, set_file_path
 
 import pandas as pd
 

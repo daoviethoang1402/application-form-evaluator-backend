@@ -4,7 +4,6 @@ import os
 import pandas as pd
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
-from app.services.file_service import read_sheet_from_excel
 from app.modules.grader_summarizer.service import generate_prompt_for_category, process_llm_category_response
 from app.llm.gemini_service import generate_content
 

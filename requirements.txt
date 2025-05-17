@@ -2,6 +2,6 @@ google-genai
 mistralai
 openpyxl
 pandas
-fastapi[standard]
-uvicorn[standard]
+fastapi
+uvicorn
 athina-logger

@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 import json
 import os
-from app.services.utils import get_file_path, set_file_path
-from app.services.file_service import read_sheet_from_excel
+from app.utils.filepath import get_file_path, set_file_path
+from app.utils.excel import read_sheet_from_excel
 from app.services.grader_summarizer_service import grade_and_summarize_candidates
 
 router = APIRouter(prefix="/grader-summarizer", tags=["Grader - Summarizer"])
@@ -16,7 +16,7 @@ async def evaluate_all_candidates(
     excel_file_path = get_file_path(subpath, filename)
     jd_schema_file_path = get_file_path('results/jd_quantifier/', jd_schema_filename)
 
-    name, table = read_sheet_from_excel(excel_file_path)
+    table, name = read_sheet_from_excel(excel_file_path)
     with open(jd_schema_file_path, "r") as f:
         grading_schema = json.load(f)
     

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.services.utils import get_file_path, set_file_path
+from app.utils.filepath import get_file_path, set_file_path
 from app.services.jd_quantifier_service import generate_score_schema_from_jd
 import os
 import json
@@ -22,7 +22,7 @@ async def execute_jd_quantifier(
         return {"status": "error"}
     else:
         file_name, file_ext = os.path.splitext(os.path.basename(filename))
-        result_path = set_file_path("results/jd_quantifier", f'[schema]{file_name}.json')
+        result_path = set_file_path("results/jd_quantifier", f'[schema] {file_name}.json')
         with open(result_path, "w", encoding="utf-8") as file:
             json.dump(schema, file, ensure_ascii=False, indent=4)
         return {"status": "success", "file_path": result_path}

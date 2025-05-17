@@ -1,5 +1,5 @@
 from app.modules.resume_parser import service, utils
-from app.services.file_service import read_sheet_from_excel
+from app.utils.excel import read_sheet_from_excel, find_resume_column
 import pandas as pd 
 import json
 
@@ -19,9 +19,9 @@ async def parse_all_resumes_from_excel(file_path, required_fields):
             print(f"JSON schema generated successfully at attempt {times_generate_json_schema}")
             break
 
-    name, table = read_sheet_from_excel(file_path)
+    table, name = read_sheet_from_excel(file_path)
     print(f"Table {name} found")
-    resume_column = utils.find_resume_column(table)
+    resume_column = find_resume_column(table)
     result_df = pd.DataFrame(columns=list(parsed_json_schema.keys()))
     error_list = []
 
