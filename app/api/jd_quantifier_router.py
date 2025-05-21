@@ -16,10 +16,11 @@ async def execute_jd_quantifier(
     """
     Execute JD Quantifier with the given parameters.
     """
-    file_path = get_file_path(subpath, filename)
-    schema = await generate_score_schema_from_jd(file_path, scoring_scale_min, scoring_scale_max)
-    if not schema:
-        return {"status": "error"}
+    try:
+        file_path = get_file_path(subpath, filename)
+        schema = await generate_score_schema_from_jd(file_path, scoring_scale_min, scoring_scale_max)
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
     else:
         file_name, file_ext = os.path.splitext(os.path.basename(filename))
         result_path = set_file_path("results/jd_quantifier", f'[schema] {file_name}.json')

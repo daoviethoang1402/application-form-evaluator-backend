@@ -15,7 +15,7 @@ GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 prompt_template_path = posixpath.join(".", "app/modules/jd_quantifier/prompt_templates", "prompt_template_v2.txt")
 with open(prompt_template_path, "r", encoding="utf-8") as file:
     PROMPT_TEMPLATE = file.read().strip()
-MODEL = "gemini-2.5-pro-preview-03-25"
+MODEL = "gemini-2.5-pro-preview-05-06"
 
 async def generate_score_schema_from_jd(jd_path: str, scoring_scale_min: int, scoring_scale_max: int):
     schema = gen_and_log_schema_from_jd(jd_path=jd_path, 
