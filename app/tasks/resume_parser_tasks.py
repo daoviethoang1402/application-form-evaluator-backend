@@ -1,9 +1,16 @@
+from app.utils.excel import read_sheet_from_excel, find_resume_column
+from app.utils.filepath import get_file_path, set_file_path
 from app.modules.resume_parser import service, utils
-from app.services.file_service import read_sheet_from_excel
-import pandas as pd 
-import json
+from app.worker import celery_app
 
-async def parse_all_resumes_from_excel(file_path, required_fields):
+import pandas as pd
+import json
+import os
+
+@celery_app.task(bind=True, name='resume_parser.extract_cv')
+def extract_cv_task(self, subpath: str, filename: str, required_fields: str):
+    self.update_state(state='PROGRESS', meta={'status': 'Đang trích xuất thông tin từ CV...'})
+
     not_generate_json_schema = True
     times_generate_json_schema = 1
     while not_generate_json_schema:
@@ -19,9 +26,10 @@ async def parse_all_resumes_from_excel(file_path, required_fields):
             print(f"JSON schema generated successfully at attempt {times_generate_json_schema}")
             break
 
-    name, table = read_sheet_from_excel(file_path)
+    file_path = get_file_path(subpath, filename)
+    table, name = read_sheet_from_excel(file_path)
     print(f"Table {name} found")
-    resume_column = utils.find_resume_column(table)
+    resume_column = find_resume_column(table)
     result_df = pd.DataFrame(columns=list(parsed_json_schema.keys()))
     error_list = []
 
@@ -58,4 +66,11 @@ async def parse_all_resumes_from_excel(file_path, required_fields):
             continue
     combined_df = pd.concat([table, result_df], axis=1)
 
-    return combined_df, error_list
+    # Save output file to the results directory
+    file_name, file_ext = os.path.splitext(os.path.basename(filename))
+    result_path = set_file_path("results/resume_parser", file_name + "_parsed" + file_ext)    
+    try:
+        combined_df.to_excel(result_path, index=False)    
+        return {"status": "success", "file_path": result_path, "errors": error_list}
+    except Exception as e:
+        return {"status": "error", "message": str(e), "errors": error_list}
