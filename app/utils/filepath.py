@@ -1,6 +1,6 @@
 import os
 
-STORAGE_DIR = 'app/storage'
+STORAGE_DIR = 'storage'
 
 def get_file_path(subpath: str, filename: str):
     file_path = os.path.join(STORAGE_DIR, subpath, filename)

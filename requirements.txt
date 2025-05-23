@@ -5,3 +5,7 @@ pandas
 fastapi
 uvicorn
 athina-logger
+celery
+redis
+python-multipart
+python-dotenv

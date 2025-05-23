@@ -3,7 +3,7 @@ import json
 import os
 from app.utils.filepath import get_file_path, set_file_path
 from app.utils.excel import read_sheet_from_excel
-from app.services.grader_summarizer_service import grade_and_summarize_candidates
+from app.tasks.grader_summarizer_service import grade_and_summarize_candidates
 
 router = APIRouter(prefix="/grader-summarizer", tags=["Grader - Summarizer"])
 
