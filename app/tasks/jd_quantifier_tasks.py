@@ -1,12 +1,13 @@
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+from app.modules.jd_quantifier.service import gen_and_log_schema_from_jd
+from app.utils.filepath import get_file_path, set_file_path
+from app.worker import celery_app
+
+from dotenv import load_dotenv
+import json
 import sys
 import os
-from dotenv import load_dotenv
 import posixpath
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
-from app.modules.jd_quantifier.service import gen_and_log_schema_from_jd
-from app.worker import celery_app
-from app.utils.filepath import set_file_path
-import json
 
 # Load environment variables from .env file
 load_dotenv()
@@ -21,10 +22,11 @@ with open(prompt_template_path, "r", encoding="utf-8") as file:
 MODEL = "gemini-2.5-pro-preview-05-06"
 
 @celery_app.task(bind=True, name='jd_quantifier.generate_schema')
-def generate_schema_task(self, jd_path: str, filename: str, scoring_scale_min: int, scoring_scale_max: int):
+def generate_schema_task(self, subpath: str, filename: str, scoring_scale_min: int, scoring_scale_max: int):
     try:
-        self.update_state(state='PROGRESS', meta={'status': 'Đang xử lý JD...'})
-        schema = gen_and_log_schema_from_jd(jd_path=jd_path, 
+        self.update_state(state='PROGRESS', meta={'status': 'Đang xây dựng bảng điểm từ JD...'})
+        file_path = get_file_path(subpath, filename)
+        schema = gen_and_log_schema_from_jd(jd_path=file_path, 
                                             scoring_scale_min=scoring_scale_min, scoring_scale_max=scoring_scale_max,
                                             prompt_template=PROMPT_TEMPLATE,
                                             google_api_key=GOOGLE_API_KEY,

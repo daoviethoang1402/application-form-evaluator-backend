@@ -1,27 +1,21 @@
-from fastapi import APIRouter, HTTPException
-import os
-from app.tasks import resume_parser_service
-from app.utils.filepath import get_file_path, set_file_path
-
-import pandas as pd
+from app.tasks.resume_parser_tasks import extract_cv_task
+from fastapi import APIRouter
 
 router = APIRouter(prefix="/resume-parser", tags=["Resume Parser"])
 
-@router.get("/parse-all/")
-async def parse_all_resumes(subpath: str, filename: str, required_fields: str):
-    file_path = get_file_path(subpath, filename)
+@router.get("/execute/")
+def execute_resume_parser(subpath: str, filename: str, required_fields: str):
+    try:        
+        task = extract_cv_task.delay(subpath, filename, required_fields)
 
-    # Parse resumes from sheet
-    print(f"Parsing resumes from file: {file_path}")
-    # Use await to ensure we wait for the parsing to complete
-    output, error_list = await resume_parser_service.parse_all_resumes_from_excel(file_path, required_fields)
-
-    # # Save output file to the results directory
-    file_name, file_ext = os.path.splitext(os.path.basename(filename))
-    result_path = set_file_path("results/resume_parser", file_name + "_parsed" + file_ext)    
-    try:
-        output.to_excel(result_path, index=False)    
+        return {
+            'status': 'processing',
+            'task_id': task.id,
+            'message': 'Đang trích xuất thông tin từ CV. Vui lòng chờ trong giây lát.'
+        }
+    
     except Exception as e:
-        return {"status": "error", "message": str(e), "errors": error_list}
-    else:
-        return {"status": "success", "file_path": result_path, "errors": error_list}
+        return {
+            'status': 'error',
+            'message': str(e)
+        }

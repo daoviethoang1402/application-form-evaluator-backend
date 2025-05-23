@@ -3,6 +3,7 @@ version: '3.8'
 services:
   # Main Application
   app:
+    container_name: app
     build:
       context: .
       dockerfile: Dockerfile
@@ -21,6 +22,7 @@ services:
 
   # Celery Worker
   worker:
+    container_name: worker
     build:
       context: .
       dockerfile: Dockerfile

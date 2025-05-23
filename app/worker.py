@@ -1,6 +1,6 @@
+from dotenv import load_dotenv
 from celery import Celery
 import os
-from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -8,7 +8,11 @@ load_dotenv()
 celery_app = Celery('app',
              broker=os.environ.get('REDIS_URL', 'redis://localhost:6379/0'),
              backend=os.environ.get('REDIS_URL', 'redis://localhost:6379/0'),
-             include=['app.tasks.jd_quantifier_tasks'])
+             include=[
+                 'app.tasks.jd_quantifier_tasks', 
+                 'app.tasks.resume_parser_tasks',
+                 'app.tasks.grader_summarizer_tasks'
+                 ])
 
 # Cấu hình tùy chọn
 celery_app.conf.update(

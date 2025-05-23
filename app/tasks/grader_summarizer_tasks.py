@@ -1,17 +1,29 @@
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
+from app.modules.grader_summarizer.service import generate_prompt_for_category, process_llm_category_response
+from app.llm.gemini_service import generate_content
+from app.utils.filepath import get_file_path, set_file_path
+from app.utils.excel import read_sheet_from_excel
+from app.worker import celery_app
+
 import json
 import sys
 import os
 import pandas as pd
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
-from app.modules.grader_summarizer.service import generate_prompt_for_category, process_llm_category_response
-from app.llm.gemini_service import generate_content
+@celery_app.task(bind=True, name='grader_summarizer.grade')
+def grade_summarize_task(self, subpath, filename, jd_schema_filename):
+    self.update_state(state='PROGRESS', meta={'status': 'Đang chấm điểm cho các ứng viên...'})
+    excel_file_path = get_file_path(subpath, filename)
+    jd_schema_file_path = get_file_path('results/jd_quantifier/', jd_schema_filename)
 
-async def grade_and_summarize_candidates(table, grading_schema):
+    table, name = read_sheet_from_excel(excel_file_path)
+    with open(jd_schema_file_path, "r") as f:
+        grading_schema = json.load(f)
+
     summaries = []
     for i in range(len(table)):
         candidate_answer = table.iloc[i].to_dict()
-        print(f"Candidate: {candidate_answer['Họ & tên của bạn:']}")
+        print(f"Candidate: {i}")
         candidate_summary = {
             'Total score': 0
         }
@@ -54,4 +66,11 @@ async def grade_and_summarize_candidates(table, grading_schema):
     # Create a DataFrame from the summaries
     summaries_df = pd.DataFrame(summaries)
     result_df = pd.concat([table, summaries_df], axis=1)
-    return result_df
+    
+    file_name, file_ext = os.path.splitext(os.path.basename(filename))
+    result_path = set_file_path("results/grader_summarizer", file_name + "_graded" + file_ext)    
+    try:
+        result_df.to_excel(result_path, index=False)    
+        return {"status": "success", "file_path": result_path}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
