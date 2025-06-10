@@ -1,5 +1,6 @@
 from app.tasks.grader_summarizer_tasks import grade_summarize_task
 from fastapi import APIRouter
+from celery_once import AlreadyQueued
 
 router = APIRouter(prefix="/grader-summarizer", tags=["Grader - Summarizer"])
 
@@ -9,17 +10,26 @@ def execute_grader_summarizer(
     filename: str,
     jd_schema_filename: str
 ):
-    try:        
+    try:
         task = grade_summarize_task.delay(subpath, filename, jd_schema_filename)
-
         return {
             'status': 'processing',
-            'task_id': task.id,
-            'message': 'Đang chấm điểm cho các ứng viên. Vui lòng chờ trong giây lát.'
+            'message': {
+                'task_id': task.id,
+                'details': 'Đang chấm điểm cho các ứng viên. Vui lòng chờ trong giây lát.'
+            }
         }
-    
+    except AlreadyQueued as e:
+        return {
+            'status': 'error',
+            'message': {
+                'details': f'Task đang được xử lý. Vui lòng đợi {e.countdown} giây.'
+            }
+        }
     except Exception as e:
         return {
             'status': 'error',
-            'message': str(e)
+            'message': {
+                'details': str(e),
+            }
         }

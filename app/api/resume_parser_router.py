@@ -10,12 +10,16 @@ def execute_resume_parser(subpath: str, filename: str, required_fields: str):
 
         return {
             'status': 'processing',
-            'task_id': task.id,
-            'message': 'Đang trích xuất thông tin từ CV. Vui lòng chờ trong giây lát.'
+            'message': {
+                'task_id': task.id,
+                'details': 'Đang trích xuất thông tin từ CV. Vui lòng chờ trong giây lát.'
+            }
         }
     
     except Exception as e:
         return {
             'status': 'error',
-            'message': str(e)
+            'message': {
+                'details': str(e),
+            }
         }

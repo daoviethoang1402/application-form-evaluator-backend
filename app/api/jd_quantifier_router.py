@@ -18,12 +18,16 @@ def execute_jd_quantifier(
 
         return {
             'status': 'processing',
-            'task_id': task.id,
-            'message': 'Đang xử lý JD. Vui lòng chờ trong giây lát.'
+            'message': {
+                'task_id': task.id,
+                'details': 'Đang xử lý JD. Vui lòng chờ trong giây lát.'
+            }
         }
     
     except Exception as e:
         return {
             'status': 'error',
-            'message': str(e)
+            'message': {
+                'details': str(e),
+            }
         }

@@ -1,9 +1,9 @@
 from app.worker import celery_app
 from fastapi import APIRouter
 
-router = APIRouter(tags=["Task Status"])
+router = APIRouter(prefix='/task-status', tags=["Task Status"])
 
-@router.get("/status/{task_id}")
+@router.get("/{task_id}")
 def get_task_status(task_id: str):
     """
     Lấy trạng thái của task dựa vào task_id

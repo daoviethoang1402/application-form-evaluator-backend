@@ -6,6 +6,7 @@ fastapi
 uvicorn
 athina-logger
 celery
+celery_once
 redis
 python-multipart
 python-dotenv

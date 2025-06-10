@@ -13,7 +13,12 @@ async def upload_file(file: UploadFile = File(...)):
     with open(file_location, "wb+") as f:
         f.write(file.file.read())
     if not file.filename.endswith(('.xlsx', '.xls')):
-        return {"message": "Upload successful", "filename": file.filename}
+        return {
+            'status': 'success',
+            'message': {
+                'file_path': file.filename
+            }
+        }
     try:
         ## Only for checking if the file has more than one sheet
         table, name = excel.read_sheet_from_excel(file_location)
@@ -21,7 +26,12 @@ async def upload_file(file: UploadFile = File(...)):
         os.remove(file_location)
         raise HTTPException(status_code=500, detail=str(e))
     else:
-        return {"message": "Upload successful", "filename": file.filename}
+        return {
+            'status': 'success',
+            'message': {
+                'file_path': file.filename
+            }
+        }
 
 @router.get("/download/")
 async def download_file(subpath: str, filename: str):
@@ -40,14 +50,22 @@ async def delete_file(subpath: str, filename: str):
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
     else:
-        return {"status": f"File {filename} deleted successfully"}
+        return {
+            'status': 'success',
+            'message': 'File {filename} deleted successfully'
+        }
 
 @router.get("/list/")
 async def list_files():
-    files = path.build_folder_tree()
-    return {"files": files}
+    files_tree = path.build_folder_tree()
+    return {
+        'status': 'success',
+        'message': {
+            'files_tree': files_tree
+        }
+    }
     
-@router.get("/excel/get-columns/")
+@router.get("/excel-get-columns/")
 async def get_columns_from_excel(subpath: str, filename: str):
     try:
         # Lấy table từ filename
@@ -62,9 +80,16 @@ async def get_columns_from_excel(subpath: str, filename: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     else:
-        return {"num_columns": len(columns), "columns": columns, "resume_column_name": resume_column}
+        return {
+            'status': 'success',
+            'message': {
+                'num_columns': len(columns), 
+                'columns': columns, 
+                'resume_column_name': resume_column
+            }
+        }
 
-@router.post("/excel/select-columns/")
+@router.post("/excel-select-columns/")
 async def select_columns(subpath: str, filename: str, columns: Annotated[list[str], Query(...)] = []):
     try:
          # Lấy table từ filename
@@ -84,4 +109,9 @@ async def select_columns(subpath: str, filename: str, columns: Annotated[list[st
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     else:
-        return {"status": "Columns selected successfully", "new_file_path": new_file_path}
+        return {
+            'status': 'success',
+            'message': {
+                'file_path': new_file_path
+            }
+        }

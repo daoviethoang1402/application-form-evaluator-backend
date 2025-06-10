@@ -37,7 +37,16 @@ def generate_schema_task(self, subpath: str, filename: str, scoring_scale_min: i
         
         with open(result_path, "w", encoding="utf-8") as file:
             json.dump(schema, file, ensure_ascii=False, indent=4)
-        
-        return {'status': 'success', 'file_path': result_path}
+        return {
+            'status': 'success',
+            'message': {
+                'result_path': result_path,
+            }
+        }
     except Exception as e:
-        return {"status": "error", "message": str(e)}
+        return {
+            'status': 'error',
+            'message': {
+                'details': str(e),
+            }
+        }
