@@ -2,12 +2,21 @@ from app.utils.excel import read_sheet_from_excel, find_resume_column
 from app.utils.filepath import get_file_path, set_file_path
 from app.modules.resume_parser import service
 from app.worker import celery_app
+from celery_once import QueueOnce
 
 import pandas as pd
 import json
 import os
 
-@celery_app.task(bind=True, name='resume_parser.extract_cv')
+@celery_app.task(
+    bind=True, 
+    name='resume_parser.extract_cv',
+    base=QueueOnce,
+    once={
+        'graceful': True,
+        'keys': ['subpath', 'filename', 'required_fields'],
+    },
+)
 def extract_cv_task(self, subpath: str, filename: str, required_fields: str):
     try:
         self.update_state(state='PROGRESS', meta={'status': 'Đang trích xuất thông tin từ CV...'})

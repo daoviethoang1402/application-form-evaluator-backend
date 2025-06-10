@@ -1,5 +1,6 @@
 from app.tasks.jd_quantifier_tasks import generate_schema_task
 from fastapi import APIRouter
+from celery_once import AlreadyQueued
 
 router = APIRouter(prefix="/jd-quantifier", tags=["JD Quantifier"])
 
@@ -23,7 +24,13 @@ def execute_jd_quantifier(
                 'details': 'Đang xử lý JD. Vui lòng chờ trong giây lát.'
             }
         }
-    
+    except AlreadyQueued as e:
+        return {
+            'status': 'error',
+            'message': {
+                'details': f'Task đang được xử lý. Vui lòng đợi {e.countdown} giây.'
+            }
+        }
     except Exception as e:
         return {
             'status': 'error',

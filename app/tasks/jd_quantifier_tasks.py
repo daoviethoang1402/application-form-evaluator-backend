@@ -5,9 +5,9 @@ from app.worker import celery_app
 
 from dotenv import load_dotenv
 import json
-import sys
 import os
 import posixpath
+from celery_once import QueueOnce
 
 # Load environment variables from .env file
 load_dotenv()
@@ -21,7 +21,15 @@ with open(prompt_template_path, "r", encoding="utf-8") as file:
     PROMPT_TEMPLATE = file.read().strip()
 MODEL = "gemini-2.5-pro-preview-05-06"
 
-@celery_app.task(bind=True, name='jd_quantifier.generate_schema')
+@celery_app.task(
+    bind=True, 
+    name='jd_quantifier.generate_schema',
+    base=QueueOnce,
+    once={
+        'graceful': True,
+        'keys': ['subpath', 'filename', 'scoring_scale_min', 'scoring_scale_max'],
+    },
+)
 def generate_schema_task(self, subpath: str, filename: str, scoring_scale_min: int, scoring_scale_max: int):
     try:
         self.update_state(state='PROGRESS', meta={'status': 'Đang xây dựng bảng điểm từ JD...'})

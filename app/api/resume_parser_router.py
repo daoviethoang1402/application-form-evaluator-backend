@@ -1,5 +1,6 @@
 from app.tasks.resume_parser_tasks import extract_cv_task
 from fastapi import APIRouter
+from celery_once import AlreadyQueued
 
 router = APIRouter(prefix="/resume-parser", tags=["Resume Parser"])
 
@@ -15,7 +16,13 @@ def execute_resume_parser(subpath: str, filename: str, required_fields: str):
                 'details': 'Đang trích xuất thông tin từ CV. Vui lòng chờ trong giây lát.'
             }
         }
-    
+    except AlreadyQueued as e:
+        return {
+            'status': 'error',
+            'message': {
+                'details': f'Task đang được xử lý. Vui lòng đợi {e.countdown} giây.'
+            }
+        }
     except Exception as e:
         return {
             'status': 'error',
