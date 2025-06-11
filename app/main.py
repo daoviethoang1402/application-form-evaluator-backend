@@ -1,6 +1,7 @@
-from app.api import file_router, resume_parser_router, jd_quantifier_router, grader_summarizer_router, task_status_router
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
+from app.api import file_router, resume_parser_router, jd_quantifier_router, grader_summarizer_router, task_status_router
 
 app = FastAPI()
 

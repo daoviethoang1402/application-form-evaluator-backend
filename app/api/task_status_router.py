@@ -1,5 +1,6 @@
-from app.worker import celery_app
 from fastapi import APIRouter
+
+from app.worker import celery_app
 
 router = APIRouter(prefix='/task-status', tags=["Task Status"])
 

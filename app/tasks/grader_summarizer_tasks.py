@@ -1,14 +1,21 @@
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
-from app.modules.grader_summarizer.service import generate_prompt_for_category, process_llm_category_response
-from app.llm.gemini_service import generate_content
-from app.utils.filepath import get_file_path, set_file_path
-from app.utils.excel import read_sheet_from_excel
-from app.worker import celery_app
-from celery_once import QueueOnce
-
 import json
 import os
+
 import pandas as pd
+from celery_once import QueueOnce
+
+from app.worker import celery_app
+from app.utils.excel import read_sheet_from_excel
+from app.llm.gemini_service import generate_content
+from app.utils.filepath import get_file_path, set_file_path
+from app.modules.grader_summarizer.service import generate_prompt_for_category, process_llm_category_response
+
+
+"""
+Keys để phân biêt các task là argument của hàm. QueueOnce chỉ cho phép đến từng này.
+
+Cần một cách khác "chính thống" hơn để xây dựng keys.
+"""
 
 @celery_app.task(
     bind=True,
@@ -30,9 +37,10 @@ def grade_summarize_task(self, subpath, filename, jd_schema_filename):
             grading_schema = json.load(f)
 
         summaries = []
-        for i in range(len(table)):
-            candidate_answer = table.iloc[i].to_dict()
-            print(f"Candidate: {i}")
+        for index, candidate_answer in table.iterrows():
+            # candidate_answer = table.iloc[index].to_dict()
+            candidate_answer = candidate_answer.to_dict()
+            print(f"Grading candidate: {index + 1}/{len(table)}")
             candidate_summary = {
                 'Total score': 0
             }
@@ -40,7 +48,7 @@ def grade_summarize_task(self, subpath, filename, jd_schema_filename):
             # Chấm điểm cho từng category
             for category in grading_schema['scoringCategories']:
                 category_name = category['category_name']
-                print(f"----- Category: {category_name}")
+                print(f"--- Category: {category_name} ---")
                 if category['weight_percent'] == 0:
                     continue # Skip to the next category
                 # Create prompt
@@ -53,16 +61,16 @@ def grade_summarize_task(self, subpath, filename, jd_schema_filename):
                 grading_successful = False
                 times_grading = 1
                 while not grading_successful:
-                    print(f"Grading candidate at attempt {times_grading}")
+                    print(f"----- Grading candidate at attempt {times_grading} -----")
                     response = generate_content(prompt, model="gemini-2.0-flash")
                     try:
                         json_response = json.loads(response.replace('```json\n', '').replace('\n```', ''))
                     except json.decoder.JSONDecodeError as e:
-                        print(f"Error when decoding this candidate at {category_name}")
+                        print(f"----- => Error when decoding this candidate at {category_name} -----")
                         times_grading += 1
                     else:
                         grading_successful = True
-                        print(f"Grading sucessfully at attempt {times_grading}")
+                        print(f"----- => Grading sucessfully at attempt {times_grading} -----")
                 # Return score of that category and its summary
                 result = process_llm_category_response(json_response, category)
                 candidate_summary['Total score'] += result['category_score'] * category['weight_percent'] / 100
@@ -87,7 +95,6 @@ def grade_summarize_task(self, subpath, filename, jd_schema_filename):
             }
         }
     except Exception as e:
-        print('fuck')
         return {
             'status': 'error',
             'message': {

@@ -1,6 +1,7 @@
-from app.tasks.resume_parser_tasks import extract_cv_task
 from fastapi import APIRouter
 from celery_once import AlreadyQueued
+
+from app.tasks.resume_parser_tasks import extract_cv_task
 
 router = APIRouter(prefix="/resume-parser", tags=["Resume Parser"])
 

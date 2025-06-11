@@ -1,6 +1,7 @@
-from app.tasks.jd_quantifier_tasks import generate_schema_task
 from fastapi import APIRouter
 from celery_once import AlreadyQueued
+
+from app.tasks.jd_quantifier_tasks import generate_schema_task
 
 router = APIRouter(prefix="/jd-quantifier", tags=["JD Quantifier"])
 

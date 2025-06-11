@@ -1,6 +1,7 @@
-from app.tasks.grader_summarizer_tasks import grade_summarize_task
 from fastapi import APIRouter
 from celery_once import AlreadyQueued
+
+from app.tasks.grader_summarizer_tasks import grade_summarize_task
 
 router = APIRouter(prefix="/grader-summarizer", tags=["Grader - Summarizer"])
 

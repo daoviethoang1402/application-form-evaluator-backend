@@ -4,7 +4,6 @@ import json
 import math
 
 from google import genai
-
 from athina_logger.api_key import AthinaApiKey
 from athina_logger.inference_logger import InferenceLogger
 from athina_logger.exception.custom_exception import CustomException

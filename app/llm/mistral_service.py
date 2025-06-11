@@ -1,6 +1,7 @@
-from mistralai import Mistral
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
+
+from mistralai import Mistral
 
 load_dotenv()
 mistral = Mistral(api_key=os.getenv('MISTRAL_API_KEY'))

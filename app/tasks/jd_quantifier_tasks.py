@@ -1,13 +1,13 @@
-# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../..")))
-from app.modules.jd_quantifier.service import gen_and_log_schema_from_jd
-from app.utils.filepath import get_file_path, set_file_path
-from app.worker import celery_app
-
-from dotenv import load_dotenv
-import json
 import os
+import json
 import posixpath
+from dotenv import load_dotenv
+
 from celery_once import QueueOnce
+
+from app.worker import celery_app
+from app.utils.filepath import get_file_path, set_file_path
+from app.modules.jd_quantifier.service import gen_and_log_schema_from_jd
 
 # Load environment variables from .env file
 load_dotenv()

@@ -1,5 +1,3 @@
-import pandas as pd
-
 def convert_to_export_link(url):
     if 'https://drive.google.com/file/d/' in url:
         file_id = url.split('/d/')[1].split('/')[0]

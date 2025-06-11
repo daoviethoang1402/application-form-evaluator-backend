@@ -1,12 +1,13 @@
-from app.utils.excel import read_sheet_from_excel, find_resume_column
-from app.utils.filepath import get_file_path, set_file_path
-from app.modules.resume_parser import service
-from app.worker import celery_app
-from celery_once import QueueOnce
+import os
+import json
 
 import pandas as pd
-import json
-import os
+from celery_once import QueueOnce
+
+from app.worker import celery_app
+from app.modules.resume_parser import service
+from app.utils.filepath import get_file_path, set_file_path
+from app.utils.excel import read_sheet_from_excel, find_resume_column
 
 @celery_app.task(
     bind=True, 
@@ -29,11 +30,11 @@ def extract_cv_task(self, subpath: str, filename: str, required_fields: str):
             try:
                 parsed_json_schema = json.loads(json_schema.replace('```json\n', '').replace('\n```', ''))
             except json.JSONDecodeError as e:
-                print(f"Error generating JSON schema: {e}")
+                print(f"--- => Error generating JSON schema: {e} ---")
                 times_generate_json_schema += 1
             else:
                 not_generate_json_schema = False
-                print(f"JSON schema generated successfully at attempt {times_generate_json_schema}")
+                print(f"--- => JSON schema generated successfully at attempt {times_generate_json_schema} ---")
                 break
 
         file_path = get_file_path(subpath, filename)
@@ -44,7 +45,7 @@ def extract_cv_task(self, subpath: str, filename: str, required_fields: str):
         error_list = []
 
         for index, row in table.iterrows():
-            print(f"Processing row {index + 1}/{len(table)}")
+            print(f"Processing candidate: {index + 1}/{len(table)}")
             resume_link = row[resume_column]
             if pd.isna(resume_link) or not isinstance(resume_link, str):
                 continue
@@ -60,7 +61,7 @@ def extract_cv_task(self, subpath: str, filename: str, required_fields: str):
                     "resume_link": resume_link,
                     "response": response_as_str
                 })
-                print(f"Error parsing resume at row {index + 1}: {str(e)}")
+                print(f"--- => Error parsing resume at row {index + 1}: {str(e)} ---")
                 continue
 
             try:
@@ -72,8 +73,9 @@ def extract_cv_task(self, subpath: str, filename: str, required_fields: str):
                     "resume_link": resume_link,
                     "response": response_as_str
                 })
-                print(f"Error adding parsed data to DataFrame at row {index + 1}: {str(e)}")
+                print(f"--- => Error adding parsed data to DataFrame at row {index + 1}: {str(e)} ---")
                 continue
+            print(f"--- => Successfully parsing resume of the candidate ---")
         combined_df = pd.concat([table, result_df], axis=1)
 
         # Save output file to the results directory

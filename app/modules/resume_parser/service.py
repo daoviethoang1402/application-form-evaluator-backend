@@ -1,4 +1,3 @@
-import json
 import requests
 
 from app.llm.gemini_service import generate_content
